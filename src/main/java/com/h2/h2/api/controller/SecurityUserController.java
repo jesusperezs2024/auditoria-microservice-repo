@@ -12,7 +12,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.sql.DataSource;
-
+//prueba de cambios
 @RestController
 @RequestMapping("api/v1/auditoria/SecurityUser")
 public class SecurityUserController {
