@@ -7,6 +7,10 @@ import java.util.List;
 public interface UserAccionsService {
     List<UserAccionsModel> listados();
 
+    UserAccionsModel getById(Integer id);
+
+    List<UserAccionsModel> getByIdUser(String iduser);
+
     UserAccionsModel crear(UserAccionsModel eventsModel);
 
     UserAccionsModel update(UserAccionsModel eventsModel);

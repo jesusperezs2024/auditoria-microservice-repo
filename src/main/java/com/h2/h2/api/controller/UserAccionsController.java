@@ -1,5 +1,6 @@
 package com.h2.h2.api.controller;
 
+import com.h2.h2.api.model.SecurityUserModel;
 import com.h2.h2.api.model.UserAccionsModel;
 import com.h2.h2.api.service.UserAccionsService;
 
@@ -31,6 +32,17 @@ public class UserAccionsController {
     @GetMapping("GetAll")
     public List<UserAccionsModel> listar() {
         return securityUserService.listados();
+    }
+
+        @GetMapping("{id}")
+    public UserAccionsModel getById(@PathVariable Integer id) {
+        return securityUserService.getById(id);
+    }
+
+
+    @GetMapping("user/{iduser}")
+    public List<UserAccionsModel> getByUserId(@PathVariable("iduser") String iduser) {
+        return securityUserService.getByIdUser(iduser);
     }
 
     @PostMapping("Create")
