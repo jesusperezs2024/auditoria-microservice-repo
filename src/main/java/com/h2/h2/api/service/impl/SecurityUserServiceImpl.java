@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
+
 import javax.persistence.EntityNotFoundException;
 
 @Service
@@ -72,6 +74,17 @@ public class SecurityUserServiceImpl implements SecurityUserService {
         SecurityUserModel unidadbusca = securityUserRepository.findById(id).get();
         unidadbusca.setStatus("I");
         return securityUserRepository.save(unidadbusca);
+    }
+
+    @Override
+    public SecurityUserModel getById(Integer id) {
+            Optional<SecurityUserModel> user = securityUserRepository.findById(id);
+            return user.orElse(null);
+    }
+
+    @Override
+    public List<SecurityUserModel> getByIdUser(String iduser) {
+            return securityUserRepository.findByIduser(iduser);   
     }
 
 }

@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 import javax.persistence.EntityNotFoundException;
 
@@ -56,6 +57,17 @@ public class UserAccionsServiceImpl implements UserAccionsService {
         UserAccionsModel unidadbusca = accionsRepository.findById(id).get();
         unidadbusca.setStatus("I");
         return accionsRepository.save(unidadbusca);
+    }
+
+            @Override
+    public UserAccionsModel getById(Integer id) {
+            Optional<UserAccionsModel> user = accionsRepository.findById(id);
+            return user.orElse(null);
+    }
+
+    @Override
+    public List<UserAccionsModel> getByIdUser(String iduser) {
+            return accionsRepository.findByIduser(iduser);   
     }
 
 }

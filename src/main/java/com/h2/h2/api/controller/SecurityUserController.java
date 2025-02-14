@@ -33,6 +33,19 @@ public class SecurityUserController {
         return securityUserService.listados();
     }
 
+    @GetMapping("{id}")
+    public SecurityUserModel getById(@PathVariable Integer id) {
+        return securityUserService.getById(id);
+    }
+
+
+    @GetMapping("user/{iduser}")
+    public List<SecurityUserModel> getByUserId(@PathVariable("iduser") String iduser) {
+        return securityUserService.getByIdUser(iduser);
+    }
+
+
+
     @PostMapping("Create")
     public SecurityUserModel create(@RequestBody SecurityUserModel securityUserModel, HttpServletRequest request) {
         String ipAddress = request.getRemoteAddr(); // Captura la IP

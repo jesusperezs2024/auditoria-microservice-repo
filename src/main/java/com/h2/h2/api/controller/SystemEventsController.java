@@ -33,6 +33,17 @@ public class SystemEventsController {
         return securityUserService.listados();
     }
 
+    @GetMapping("{id}")
+    public SystemEventsModel getById(@PathVariable Integer id) {
+        return securityUserService.getById(id);
+    }
+
+
+    @GetMapping("user/{iduser}")
+    public List<SystemEventsModel> getByUserId(@PathVariable("iduser") String iduser) {
+        return securityUserService.getByIdUser(iduser);
+    }   
+
     @PostMapping("Create")
     public SystemEventsModel create(@RequestBody SystemEventsModel securityUserModel) {
         return securityUserService.crear(securityUserModel);
