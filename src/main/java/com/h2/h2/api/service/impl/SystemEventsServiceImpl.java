@@ -40,7 +40,6 @@ public class SystemEventsServiceImpl implements SystemEventsService {
                 existingEvent.setSource(eventsModel.getSource());
                 existingEvent.setSeverity(eventsModel.getSeverity());
                 existingEvent.setDetaits(eventsModel.getDetaits());
-                existingEvent.setCreateDate(eventsModel.getCreateDate());
                 existingEvent.setUpdateDate(new Date());
                 return eventsRepository.save(existingEvent);
             }).orElseThrow(() -> new EntityNotFoundException(
